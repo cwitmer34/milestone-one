@@ -21,3 +21,31 @@ body {
   left: 0;
   right: 0;
 }
+
+#welcome {
+  font-weight: 300;
+  font-size: 4em;
+}
+
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#category-selector {
+  font-weight: 300;
+}
+
+.categories {
+  font-weight: 400;
+}
+
+.button {
+  font-size: 2em;
+  padding: 20px;
+  color: white;
+  background-color: rgb(57, 37, 190);
+  border: none;
+}
