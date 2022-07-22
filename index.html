@@ -4,9 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trivia Game</title>
+    <title>Ultimate Trivia</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
   </head>
   <body>
-    <h1>Milestone 1 Project</h1>
+    <div id="container">
+      <h1 id="welcome">Welcome to Ultimate Trivia</h1>
+      <h2 id="category-selector">
+        Please Select a category below to get started.
+      </h2>
+      <div id="button-container">
+        <div id="button-row-1">
+          <h3 class="categories">General</h3>
+          <button class="button" id="anything-goes">Anything Goes</button>
+          <button class="button" id="general-knowledge">
+            General Knowledge
+          </button>
+        </div>
+        <h3 class="categories">Entertainment</h3>
+        <div id="button-row-2">
+          <button class="button" id="video-games">Video Games</button>
+          <button class="button" id="movies">Movies</button>
+          <button class="button" id="music">Music</button>
+        </div>
+        <div id="button-row-3">
+          <h3 class="categories">Misc.</h3>
+          <button class="button" id="sports">Sports</button>
+          <button class="button" id="computers">Computers</button>
+          <button class="button" id="art">Art</button>
+          <button class="button" id="animals">Animals</button>
+        </div>
+      </div>
+    </div>
+    <div id="background-image"></div>
+    <script src="./index.js"></script>
   </body>
 </html>
