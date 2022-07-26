@@ -1,0 +1,19 @@
+{
+  "name": "ultimate-trivia",
+  "version": "1.0.0",
+  "description": "My first Vanilla JS project using the Open Trivia DB API. - this is my failed attempt at making an npm server. I want to keep this in my files to come back to later when I learn more about JSON. Oh yea, comments aren't allowed in JSON? Beats me!",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwitmer34/milestone-one.git"
+  },
+  "author": "Connor Witmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwitmer34/milestone-one/issues"
+  },
+  "homepage": "https://github.com/cwitmer34/milestone-one#readme"
+}
