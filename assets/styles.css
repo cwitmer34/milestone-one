@@ -44,7 +44,7 @@ body {
 }
 
 .button {
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 20px;
   color: white;
   background-color: rgba(0, 221, 255, 0.25);
@@ -64,7 +64,8 @@ body {
 }
 
 @media (max-width: 592px) {
-  #container {
+  #container,
+  .container {
     display: none;
   }
 
