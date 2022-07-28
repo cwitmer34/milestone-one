@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Trivia</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <link rel="stylesheet" href="./assets/game.css" />
+  </head>
+  <body>
+    <span class="no-mobile"
+      >Hi there! Unfortunately, this site is not optimized for small
+      screens/mobile devices yet. Check back later, there are plans to implement
+      usability! For now, please use a computer for all of your trivia
+      needs.</span
+    >
+    <main class="container">
+      <p id="current-time"></p>
+      <div class="header">
+        <h1 id="title">Ultimate Trivia</h1>
+        <h2 id="category">Computers</h2>
+        <div class="game-container">
+          <div class="score">
+            <p id="total-correct">Total Correct:</p>
+            <!-- Both of these elements below are appended via DOM -->
+            <p id="amount-correct">/<span id="question-amount"></span></p>
+          </div>
+          <div class="content-container">
+            <h3 class="question">
+              <!-- Questions are appended here via DOM -->
+            </h3>
+            <ul class="posible-answers">
+              <!-- Answers are appended here via DOM -->
+            </ul>
+            <div id="correct-answer">
+            <!-- The result will be appended here via DOM -->
+            </div>
+          </div>
+          <div class="footer">
+            <button class="button" id="check-answer">Check Answer</button>
+            <button class="button" id="play-again">Play Again</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
