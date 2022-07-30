@@ -22,3 +22,26 @@ h2#category {
   background-color: rgba(19, 55, 95, 0.95);
   border-radius: 25px;
 }
+
+button {
+  margin: 0.2em;
+  width: 75%;
+}
+
+button#check-answer,
+button#play-again {
+  margin-top: 6em;
+  width: 15%;
+}
+
+#button-row-1,
+#button-row-2 {
+  width: 100%;
+}
+
+#answer-1,
+#answer-2,
+#answer-3,
+#answer-4 {
+  padding: 1.25em;
+}
