@@ -14,7 +14,7 @@ function randomElement(array) {
 
 async function appendQuestion() {
   let question = await getQuestion().then();
-  _questionHTML.textContent = question.question;
+  _questionHTML.textContent = `${question.question}`;
 }
 
 async function displayQuestion() {
