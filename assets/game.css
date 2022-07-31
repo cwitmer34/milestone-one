@@ -30,7 +30,8 @@ button {
 
 button#check-answer,
 button#play-again {
-  margin-top: 6em;
+  margin-top: 3em;
+  margin-bottom: 1em;
   width: 15%;
 }
 
@@ -44,4 +45,8 @@ button#play-again {
 #answer-3,
 #answer-4 {
   padding: 1.25em;
+}
+
+#correct-answer {
+  margin-top: 1em;
 }
