@@ -8,7 +8,7 @@ const _answerFour = document.getElementById("answer-4");
 var triviaData = null;
 
 async function getTrivia() {
-  if (triviaData != null) {
+  if (triviaData !== null) {
     return triviaData;
   }
 
@@ -36,43 +36,41 @@ function checkAnswer() {}
 
 async function appendQuestion() {
   const trivia = await getTrivia();
-  console.log(trivia.results[0].question);
   // Credits to JJ99#7150 on discord for teaching me this trick below (HTML entities were showing instead of the symbol - i.e single quotes showed as &#039; instead of ')
   const doc = new DOMParser().parseFromString(
     trivia.results[0].question,
     "text/html"
   );
-  console.log(doc);
   _questionHTML.textContent = doc.documentElement.textContent;
 }
 
-async function appendAnswers() {
+async function appendData() {
   const trivia = await getTrivia();
-  console.log(trivia);
-  questionData.incorrect_answers[3] = questionData.correct_answer;
-  let totalAnswers = questionData.incorrect_answers;
+  let totalAnswers = [
+    ...trivia.results[0].incorrect_answers,
+    trivia.results[0].correct_answer,
+  ];
   // Apparently I need 2 different arrays to sort them because array variables are stored by reference? Learn something new everyday I guess.
   let totalAnswers2 = [...totalAnswers];
-  console.log(totalAnswers);
   let sorted = shuffleArray(totalAnswers2);
-  console.log(sorted, "sorted");
-  console.log(trivia.correct_answer, "- Correct Answer");
+  // Ensures the proper symbol shows instead of the HTML entities
+  const doc = new DOMParser().parseFromString(
+    trivia.results[0].question,
+    "text/html"
+  );
+  _questionHTML.textContent = doc.documentElement.textContent;
+  console.log(trivia.results[0].correct_answer, "- Correct Answer");
+  // Appends info to the DOM
   _answerOne.textContent = sorted[0];
   _answerTwo.textContent = sorted[1];
   _answerThree.textContent = sorted[2];
   _answerFour.textContent = sorted[3];
 }
 
-async function displayQuestionData() {
-  appendQuestion();
-}
-
-async function checkAnswer(buttonId) {
-  let questionData = await getQuestion();
+function checkAnswer(buttonId, answer) {
   let button = document.getElementById(`${buttonId}`);
-  console.log(button.textContent, "content");
-  console.log(questionData.correct_answer);
-  if (button.textContent === questionData.correct_answer) {
+  console.log("button", button.textContent, "answer", answer);
+  if (button.textContent === answer) {
     button.style.backgroundColor = "green";
   } else {
     button.style.backgroundColor = "red";
@@ -82,4 +80,4 @@ async function checkAnswer(buttonId) {
 // appendAnswers();
 // displayQuestionData();
 
-appendQuestion();
+appendData();
