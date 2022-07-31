@@ -11,10 +11,23 @@ async function getQuestion() {
   return data.results[0];
 }
 
-function shuffleArray() {
-  let array = [1, 2, 3, 4];
-  // Credits: Flavio Copes (https://flaviocopes.com/how-to-shuffle-array-javascript/)
-  return array.sort((a, b) => Math.random() - 0.5);
+function shuffleArray(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+  return array;
 }
 
 async function appendQuestion() {
@@ -27,7 +40,9 @@ async function appendQuestion() {
 async function appendAnswers() {
   let question = await getQuestion();
   question.incorrect_answers[3] = question.correct_answer;
-  // left off trying to figure out what to do with the shuffled array and how to implement it with 
+  let sorted = shuffleArray(question.incorrect_answers);
+  console.log(sorted);
+  console.log(question.incorrect_answers);
 }
 
 async function displayQuestionData() {
