@@ -31,53 +31,47 @@ const shuffleArray = (array) => {
   }
   return array;
 };
-
-function checkAnswer() {}
-
-async function appendQuestion() {
+async function triviaGame() {
   const trivia = await getTrivia();
-  // Credits to JJ99#7150 on discord for teaching me this trick below (HTML entities were showing instead of the symbol - i.e single quotes showed as &#039; instead of ')
-  const doc = new DOMParser().parseFromString(
-    trivia.results[0].question,
-    "text/html"
-  );
-  _questionHTML.textContent = doc.documentElement.textContent;
+  async function appendData() {
+    let totalAnswers = [
+      ...trivia.results[0].incorrect_answers,
+      trivia.results[0].correct_answer,
+    ];
+    // Apparently I need 2 different arrays to sort them because array variables are stored by reference? Learn something new everyday I guess.
+    let totalAnswers2 = [...totalAnswers];
+    let sorted = shuffleArray(totalAnswers2);
+    // Ensures the proper symbol shows instead of the HTML entities
+    const doc = new DOMParser().parseFromString(
+      trivia.results[0].question,
+      "text/html"
+    );
+    _questionHTML.textContent = doc.documentElement.textContent;
+    console.log(trivia.results[0].correct_answer, "- Correct Answer");
+    // Appends info to the DOM
+    _answerOne.textContent = sorted[0];
+    _answerTwo.textContent = sorted[1];
+    _answerThree.textContent = sorted[2];
+    _answerFour.textContent = sorted[3];
+  }
+  appendData();
 }
 
-async function appendData() {
-  const trivia = await getTrivia();
-  let totalAnswers = [
-    ...trivia.results[0].incorrect_answers,
-    trivia.results[0].correct_answer,
-  ];
-  // Apparently I need 2 different arrays to sort them because array variables are stored by reference? Learn something new everyday I guess.
-  let totalAnswers2 = [...totalAnswers];
-  let sorted = shuffleArray(totalAnswers2);
-  // Ensures the proper symbol shows instead of the HTML entities
-  const doc = new DOMParser().parseFromString(
-    trivia.results[0].question,
-    "text/html"
-  );
-  _questionHTML.textContent = doc.documentElement.textContent;
-  console.log(trivia.results[0].correct_answer, "- Correct Answer");
-  // Appends info to the DOM
-  _answerOne.textContent = sorted[0];
-  _answerTwo.textContent = sorted[1];
-  _answerThree.textContent = sorted[2];
-  _answerFour.textContent = sorted[3];
-}
-
-function checkAnswer(buttonId, answer) {
+function checkAnswer(buttonId) {
+  console.log(trivia.results[0].question);
   let button = document.getElementById(`${buttonId}`);
-  console.log("button", button.textContent, "answer", answer);
+  console.log(
+    "button",
+    button.textContent,
+    "answer",
+    trivia.results[0].correct_answer
+  );
   if (button.textContent === answer) {
     button.style.backgroundColor = "green";
   } else {
     button.style.backgroundColor = "red";
   }
 }
-
 // appendAnswers();
 // displayQuestionData();
-
-appendData();
+triviaGame();
