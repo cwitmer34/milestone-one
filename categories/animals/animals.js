@@ -59,17 +59,19 @@ async function triviaGame() {
     btns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
         if (event.target.textContent === trivia.results[0].correct_answer) {
-          event.target.style.backgroundColor = "green";
+          event.target.style.backgroundColor = "#52D452";
+          // Disables all buttons after one has been clicked. 
+          btns.forEach((btn) => {
+            btn.disabled = true;
+          });
         } else {
-          event.target.style.backgroundColor = "red";
+          event.target.style.backgroundColor = "#FF3D33";
+          btns.forEach((btn) => {
+            btn.disabled = true;
+          });
         }
       });
     });
-    // if (button.textContent === answer) {
-    //   button.style.backgroundColor = "green";
-    // } else {
-    //   button.style.backgroundColor = "red";
-    // }
   }
 
   async function nextQuestion() {}
