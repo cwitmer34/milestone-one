@@ -6,6 +6,7 @@ const _answerThree = document.getElementById("answer-3");
 const _answerFour = document.getElementById("answer-4");
 const btns = document.querySelectorAll("button[id^=answer-]");
 var runCount = 0;
+var correct = 0;
 // Credits to my friend Jonah for teaching me how to cache data that I get from an API call.
 var triviaData = null;
 
@@ -30,9 +31,6 @@ const shuffleArray = (array) => {
   return array;
 };
 async function triviaGame() {
-  if (runCount === 10) {
-    return;
-  }
   const trivia = await getTrivia();
   async function appendData() {
     let totalAnswers = [
@@ -58,26 +56,50 @@ async function triviaGame() {
   async function checkAnswer() {
     btns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
+        console.log(event.target.textContent);
         if (event.target.textContent === trivia.results[0].correct_answer) {
           event.target.style.backgroundColor = "#52D452";
           // Disables all buttons after one has been clicked.
           btns.forEach((btn) => {
             btn.disabled = true;
           });
+          setTimeout(() => {
+            if (runCount === 10) {
+              return;
+            }
+            runCount++;
+            btns.forEach((btn) => {
+              btn.disabled = false;
+            });
+            btn.style.backgroundColor = "";
+            correct++;
+            document.getElementById(
+              "amount-correct"
+            ).textContent = `${correct}/10`;
+            triviaGame();
+          }, 2000);
         } else {
           event.target.style.backgroundColor = "#FF3D33";
-          document.getElementById("correct-text").textContent =
-            trivia.results[0].correct_answer;
-          document.getElementById("correct-answer").style.visibility =
-            "visible";
-          btns.forEach((btn) => {
-            btn.disabled = true;
-          });
+          // document.getElementById("correct-text").textContent =
+          //   trivia.results[0].correct_answer;
+          // document.getElementById("correct-answer").style.visibility =
+          //   "visible";
+          setTimeout(() => {
+            if (runCount === 10) {
+              return;
+            }
+            // document.getElementById("correct-answer").style.visibility =
+            //   "hidden";
+            btns.forEach((btn) => {
+              btn.disabled = false;
+            });
+            btn.style.backgroundColor = "";
+            runCount++;
+            triviaGame();
+          }, 3500);
         }
       });
     });
-    runCount++;
-    triviaGame();
   }
 
   checkAnswer();
