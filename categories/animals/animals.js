@@ -9,10 +9,6 @@ const btns = document.querySelectorAll("button[id^=answer-]");
 var triviaData = null;
 
 async function getTrivia() {
-  if (triviaData !== null) {
-    return triviaData;
-  }
-
   return fetch("https://opentdb.com/api.php?amount=1&category=27&type=multiple")
     .then((res) => res.json())
     .then((res) => {
@@ -60,12 +56,16 @@ async function triviaGame() {
       btn.addEventListener("click", (event) => {
         if (event.target.textContent === trivia.results[0].correct_answer) {
           event.target.style.backgroundColor = "#52D452";
-          // Disables all buttons after one has been clicked. 
+          // Disables all buttons after one has been clicked.
           btns.forEach((btn) => {
             btn.disabled = true;
           });
         } else {
           event.target.style.backgroundColor = "#FF3D33";
+          document.getElementById("correct-text").textContent =
+            trivia.results[0].correct_answer;
+          document.getElementById("correct-answer").style.visibility =
+            "visible";
           btns.forEach((btn) => {
             btn.disabled = true;
           });
@@ -74,10 +74,10 @@ async function triviaGame() {
     });
   }
 
-  async function nextQuestion() {}
   checkAnswer();
   appendData();
 }
-// appendAnswers();
-// displayQuestionData();
-triviaGame();
+
+for (let i = 0; i < 10; i++) {
+  let trivia = await triviaGame();
+}

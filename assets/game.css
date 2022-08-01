@@ -25,7 +25,7 @@ h2#category {
 
 button {
   margin: 0.2em;
-  width: 75%;
+  width: 60%;
 }
 
 button#check-answer,
@@ -47,6 +47,23 @@ button#play-again {
   padding: 1.25em;
 }
 
+#answer-4 {
+  margin-bottom: 3em;
+}
 #correct-answer {
-  margin-top: 1em;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(19, 55, 95, 0.95);
+  border-radius: 25px;
+  padding: 2em 4em;
+  visibility: hidden;
+}
+
+#correct-title,
+#correct-text {
+  font-size: 200%;
 }
