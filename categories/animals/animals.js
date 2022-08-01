@@ -5,6 +5,7 @@ const _answerTwo = document.getElementById("answer-2");
 const _answerThree = document.getElementById("answer-3");
 const _answerFour = document.getElementById("answer-4");
 const btns = document.querySelectorAll("button[id^=answer-]");
+var runCount = 0;
 // Credits to my friend Jonah for teaching me how to cache data that I get from an API call.
 var triviaData = null;
 
@@ -29,6 +30,9 @@ const shuffleArray = (array) => {
   return array;
 };
 async function triviaGame() {
+  if (runCount === 10) {
+    return;
+  }
   const trivia = await getTrivia();
   async function appendData() {
     let totalAnswers = [
@@ -51,7 +55,7 @@ async function triviaGame() {
     _answerThree.textContent = sorted[2];
     _answerFour.textContent = sorted[3];
   }
-  function checkAnswer() {
+  async function checkAnswer() {
     btns.forEach((btn) => {
       btn.addEventListener("click", (event) => {
         if (event.target.textContent === trivia.results[0].correct_answer) {
@@ -72,12 +76,17 @@ async function triviaGame() {
         }
       });
     });
+    runCount++;
+    triviaGame();
   }
 
   checkAnswer();
   appendData();
 }
 
-for (let i = 0; i < 10; i++) {
-  let trivia = await triviaGame();
-}
+const iterate = () => {
+  triviaGame();
+  runCount++;
+};
+
+iterate();

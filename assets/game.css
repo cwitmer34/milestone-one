@@ -57,7 +57,7 @@ button#play-again {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  background-color: rgba(19, 55, 95, 0.95);
+  background-color: rgba(19, 55, 95, 0.9);
   border-radius: 25px;
   padding: 2em 4em;
   visibility: hidden;
