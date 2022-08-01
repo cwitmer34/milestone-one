@@ -4,6 +4,7 @@ const _answerOne = document.getElementById("answer-1");
 const _answerTwo = document.getElementById("answer-2");
 const _answerThree = document.getElementById("answer-3");
 const _answerFour = document.getElementById("answer-4");
+const btns = document.querySelectorAll("button[id^=answer-]");
 // Credits to my friend Jonah for teaching me how to cache data that I get from an API call.
 var triviaData = null;
 
@@ -54,23 +55,26 @@ async function triviaGame() {
     _answerThree.textContent = sorted[2];
     _answerFour.textContent = sorted[3];
   }
-  appendData();
-}
-
-function checkAnswer(buttonId) {
-  console.log(trivia.results[0].question);
-  let button = document.getElementById(`${buttonId}`);
-  console.log(
-    "button",
-    button.textContent,
-    "answer",
-    trivia.results[0].correct_answer
-  );
-  if (button.textContent === answer) {
-    button.style.backgroundColor = "green";
-  } else {
-    button.style.backgroundColor = "red";
+  function checkAnswer() {
+    btns.forEach((btn) => {
+      btn.addEventListener("click", (event) => {
+        if (event.target.textContent === trivia.results[0].correct_answer) {
+          event.target.style.backgroundColor = "green";
+        } else {
+          event.target.style.backgroundColor = "red";
+        }
+      });
+    });
+    // if (button.textContent === answer) {
+    //   button.style.backgroundColor = "green";
+    // } else {
+    //   button.style.backgroundColor = "red";
+    // }
   }
+
+  async function nextQuestion() {}
+  checkAnswer();
+  appendData();
 }
 // appendAnswers();
 // displayQuestionData();
