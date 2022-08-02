@@ -1,5 +1,5 @@
 # Ultimate Trivia - NORCS-SD-06 Milestone One Project
-This is my first out of three milestone projects. I am building a web based trivia game, while utilizing the OpenTDB (https://opentdb.com/) api for my trivia questions.
+This is my first out of three milestone projects. I am building a web based trivia game, while utilizing the OpenTDB (https://opentdb.com/) api for my trivia questions. The gameplay is fairly simple, all the user is required to do is use left click on the buttons/options they want to.
 
 The way I got the idea for a trivia game might be a little unique. The reasoning behind me wanting to do this is actually my friends doubting my abilities. Initially when I brought up the idea, they kind of snickered at me and told me that I probably wouldn't have the knowledge/time to make a proper trivia game. Mind you, these friends are people that are in the software development industry. I think them pushing me to do this project greatly increased the quality of the outcome.
 
