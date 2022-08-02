@@ -23,6 +23,6 @@ Overall, I think I did a good job on my first html/css/js project. There are def
 
 
 Known issues:
-...there are none that I know of? Surprising. Make sure to leave comments to let me know if you encounter any!
+- Questions are not parsing correctly (HTML entities showing instead of the actual character)
 
 
