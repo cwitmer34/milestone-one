@@ -21,8 +21,13 @@ Things I am proud of:
 
 Overall, I think I did a good job on my first html/css/js project. There are definitely a lot of features missing/unoptimized, but those will work themselves out in due time. I plan to maintain/update this somewhat regularly, and eventually deploy it to a website other than github pages.
 
+Features in question:
+- Question timeout after 30 seconds
+- Track amount of timeout/attempted failures
+- Monitor total quiz time
+- Amount spent per question
+- Answer time average
+- Show correct answer if incorrect answer is chosen
 
 Known issues:
-- Questions are not parsing correctly (HTML entities showing instead of the actual character)
-
-
+- Answers are not parsing correctly (HTML entities showing instead of the actual character)
