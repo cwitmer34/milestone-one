@@ -22,6 +22,7 @@ async function getTrivia() {
 // const trivia = await getTrivia() --- makes the call, or uses the cached data
 
 const shuffleArray = (array) => {
+  // Fisher-Yates Shuffle Algorithm (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     const temp = array[i];
