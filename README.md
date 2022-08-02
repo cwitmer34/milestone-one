@@ -1,7 +1,7 @@
 # Ultimate Trivia - NORCS-SD-06 Milestone One Project
 This is my first out of three milestone projects. I am building a web based trivia game, while utilizing the OpenTDB (https://opentdb.com/) api for my trivia questions.
 
-The way I got the idea for a trivia game, out of all possibilities, might be a little unique. The reasoning behind me wanting to do this is actually my friends being harsh on me. Initially when I brought up the idea, they kind of snickered at me and told me that I probably wouldn't have the knowledge/time to make a proper trivia game. Mind you, these friends are people that are in the software development industry. I told them okay, give me 10 days... I'll exceed you expectations, and then some. And I think that's exactly what I did. I exceeded their expectations, and mine.
+The way I got the idea for a trivia game might be a little unique. The reasoning behind me wanting to do this is actually my friends doubting my abilities. Initially when I brought up the idea, they kind of snickered at me and told me that I probably wouldn't have the knowledge/time to make a proper trivia game. Mind you, these friends are people that are in the software development industry. I think them pushing me to do this project greatly increased the quality of the outcome.
 
 I honestly had a lot of trouble adding event listeners to buttons, because before I fixed the bug I was dealing with... I was adding an event listener each iteration through the function triviaGame(). Little did I know, it was the function itself causing me issues. I had the idea of merging that function with appendData(), and removing the event listeners from the iteration. This worked partially, but then I had no way of getting the data from the API that I was fetching from. 
 
