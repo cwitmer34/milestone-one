@@ -46,18 +46,9 @@ body {
 .categories {
   font-weight: 400;
   font-size: 1.5em;
-}
-
-/* .categories1{
   margin-right: 100px;
 }
-.categories2{
-  margin-right: 35px;
-}
-.categories3{
-  margin-left: 55px;
-  margin-right: 125px;
-} */
+
 
 .categories::after{
   content: "";
@@ -72,8 +63,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: calc(100% - 625px);
-  margin: 0 auto;
 }
 
 #button-row-1, #button-row-2, #button-row-3{
