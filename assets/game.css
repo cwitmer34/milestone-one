@@ -28,11 +28,10 @@ button {
   width: 60%;
 }
 
-button#check-answer,
+button#home,
 button#play-again {
-  margin-top: 3em;
   margin-bottom: 1em;
-  width: 15%;
+  width: 50%;
 }
 
 #button-row-1,
@@ -66,4 +65,18 @@ button#play-again {
 #correct-title,
 #correct-text {
   font-size: 200%;
+}
+
+.hide {
+  display: none;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 60%;
 }

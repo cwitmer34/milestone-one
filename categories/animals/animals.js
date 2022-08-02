@@ -53,26 +53,34 @@ async function appendData() {
   _answerFour.textContent = sorted[3];
 }
 
+function gameOver() {
+  document.getElementsByTagName("main")[0].setAttribute("class", "hide");
+  document.getElementById("game-over").setAttribute("class", "center");
+  document.getElementById(
+    "over-correct-amount"
+  ).textContent = `You got ${correct}/10 (${(correct / 10) * 100}%) correct!`;
+}
+
 btns.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     console.log(runCount);
     if (event.target.textContent === triviaData.results[0].correct_answer) {
       event.target.style.backgroundColor = "#52D452";
+      correct++;
+      document.getElementById("amount-correct").textContent = `${correct}/10`;
       // Disables all buttons after one has been clicked.
       btns.forEach((btn) => {
         btn.disabled = true;
       });
       setTimeout(() => {
         if (runCount === 10) {
-          return;
+          gameOver();
         }
         runCount++;
-        correct++;
         btns.forEach((btn) => {
           btn.disabled = false;
         });
         btn.style.backgroundColor = "";
-        document.getElementById("amount-correct").textContent = `${correct}/10`;
         appendData();
       }, 2000);
     } else {
@@ -86,7 +94,7 @@ btns.forEach((btn) => {
       //   "visible";
       setTimeout(() => {
         if (runCount === 10) {
-          return;
+          gameOver();
         }
         // document.getElementById("correct-answer").style.visibility =
         //   "hidden";
@@ -100,5 +108,4 @@ btns.forEach((btn) => {
     }
   });
 });
-
 appendData();

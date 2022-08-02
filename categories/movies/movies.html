@@ -15,6 +15,14 @@
       usability! For now, please use a computer for all of your trivia
       needs.</span
     >
+    <div class="hide" id="game-over">
+      <h3 id="over-title">Quiz has concluded.</h3>
+      <h4 id="over-correct-amount">You got ?/10 (?%) correct!</h4>
+      <button id="play-again" onclick="location.href='./movies.html'">
+        Play Again
+      </button>
+      <button id="home" onclick="location.href='../../index.html'">Home</button>
+    </div>
     <main class="container">
       <p id="current-time"></p>
       <div class="header">
@@ -23,27 +31,33 @@
         <div class="game-container">
           <div class="score">
             <p id="total-correct">Total Correct:</p>
-            <!-- Both of these elements below are appended via DOM -->
-            <p id="amount-correct">/<span id="question-amount"></span></p>
+            <!-- Amount correct is appended via DOM -->
+            <p id="amount-correct">-<span id="question-amount">/10</span></p>
           </div>
           <div class="content-container">
-            <h3 class="question">
+            <h3 id="question">
               <!-- Questions are appended here via DOM -->
             </h3>
-            <ul class="posible-answers">
-              <!-- Answers are appended here via DOM -->
-            </ul>
-            <div id="correct-answer">
-            <!-- The result will be appended here via DOM -->
+            <div class="possible-answers">
+              <!-- Possible answers are appended here via DOM -->
+              <div id="button-row-1">
+                <button class="button" id="answer-1">Answer</button>
+                <button class="button" id="answer-2">Answer</button>
+              </div>
+              <div id="button-row-2">
+                <button class="button" id="answer-3">Answer</button>
+                <button class="button" id="answer-4">Answer</button>
+              </div>
             </div>
-          </div>
-          <div class="footer">
-            <button class="button" id="check-answer">Check Answer</button>
-            <button class="button" id="play-again">Play Again</button>
+            <div id="correct-answer">
+              <h3 id="correct-title">Correct Answer:</h3>
+              <p id="correct-text"></p>
+            </div>
           </div>
         </div>
       </div>
     </main>
-    <script src="./index.js"></script>
+    <script src="../../index.js"></script>
+    <script type="module" src="./movies.js"></script>
   </body>
 </html>
