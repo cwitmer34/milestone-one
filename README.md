@@ -25,8 +25,8 @@ Features in question:
 - Question timeout after 30 seconds
 - Track amount of timeout/attempted failures
 - Monitor total quiz time
-- Amount spent per question
-- Answer time average
+- Amount of time spent on each question
+- Average answer time
 - Show correct answer if incorrect answer is chosen
 
 Known issues:
