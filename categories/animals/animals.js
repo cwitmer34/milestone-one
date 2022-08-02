@@ -64,10 +64,15 @@ function gameOver() {
 btns.forEach((btn) => {
   btn.addEventListener("click", (event) => {
     console.log(runCount);
+    document.getElementById(
+      "amount-correct"
+    ).textContent = `${correct}/${runCount}`;
     if (event.target.textContent === triviaData.results[0].correct_answer) {
       event.target.style.backgroundColor = "#52D452";
       correct++;
-      document.getElementById("amount-correct").textContent = `${correct}/10`;
+      document.getElementById(
+        "amount-correct"
+      ).textContent = `${correct}/${runCount}`;
       // Disables all buttons after one has been clicked.
       btns.forEach((btn) => {
         btn.disabled = true;
@@ -86,18 +91,17 @@ btns.forEach((btn) => {
     } else {
       event.target.style.backgroundColor = "#FF3D33";
       btns.forEach((btn) => {
+        if (btn.textContent === triviaData.results[0].correct_answer) {
+          btn.style.backgroundColor = "#52D452";
+        }
+      });
+      btns.forEach((btn) => {
         btn.disabled = true;
       });
-      // document.getElementById("correct-text").textContent =
-      //   trivia.results[0].correct_answer;
-      // document.getElementById("correct-answer").style.visibility =
-      //   "visible";
       setTimeout(() => {
         if (runCount === 10) {
           gameOver();
         }
-        // document.getElementById("correct-answer").style.visibility =
-        //   "hidden";
         btns.forEach((btn) => {
           btn.disabled = false;
           btn.style.backgroundColor = "";
