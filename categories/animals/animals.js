@@ -11,25 +11,26 @@ var correct = 0;
 var triviaData = null;
 
 async function getTrivia() {
-  return fetch("https://opentdb.com/api.php?amount=1&category=27&type=multiple")
+  return fetch(_URL)
     .then((res) => res.json())
     .then((res) => {
       triviaData = res;
       return res;
     });
 }
-// anywhere I want the trivia data:
-// const trivia = await getTrivia() --- makes the call, or uses the cached data
 
 const shuffleArray = (array) => {
+  // Fisher-Yates Shuffle (https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
+    // Much better method to shuffle rather than array.sort(() => Math.random() - 0.5)
     const temp = array[i];
     array[i] = array[j];
-    array[j] = temp;
+    array[j] = temp;  
   }
   return array;
 };
+
 async function appendData() {
   triviaData = await getTrivia();
   let totalAnswers = [
